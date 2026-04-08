@@ -3,75 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetheris Executive | Management Hub</title>
+    <title>Aetheris Hub | Executive Portal</title>
     <style>
-        body { background: #0a0a0a; color: #d4af37; font-family: 'Times New Roman', serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        :root { --gold: #d4af37; --dark: #0a0a0a; }
+        body { background: var(--dark); color: #fff; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
+
+        /* Navbar Atas */
+        .navbar { background: #000; padding: 15px 20px; display: flex; align-items: center; border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100; }
+        .menu-icon { font-size: 24px; color: var(--gold); cursor: pointer; margin-right: 20px; }
+        .brand { font-size: 1.2rem; letter-spacing: 3px; font-weight: bold; color: var(--gold); }
+
+        /* Sidebar (Menu Samping) */
+        .sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100%; background: #000; transition: 0.3s; z-index: 1000; border-right: 1px solid var(--gold); padding-top: 60px; box-shadow: 10px 0 30px rgba(0,0,0,0.5); }
+        .sidebar.active { left: 0; }
+        .sidebar-item { padding: 15px 30px; display: block; color: #fff; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid #111; transition: 0.2s; letter-spacing: 1px; }
+        .sidebar-item:hover { background: var(--gold); color: #000; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 20px; color: var(--gold); cursor: pointer; }
+
+        /* Overlay */
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; z-index: 999; }
+        .overlay.active { display: block; }
+
+        /* Content */
+        .content { padding: 30px 20px; text-align: center; }
+        .user-welcome { border-left: 3px solid var(--gold); padding-left: 15px; text-align: left; max-width: 600px; margin: 0 auto 30px; }
+        .user-welcome h2 { margin: 0; font-size: 1.4rem; }
         
-        /* Navigasi */
-        .nav { width: 100%; max-width: 600px; display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 2px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 30px; margin-top: 20px; }
-        .nav a { color: #d4af37; text-decoration: none; border: 1px solid #d4af37; padding: 5px 10px; }
-
-        /* Header Section */
-        .section { width: 100%; max-width: 600px; margin-bottom: 30px; border-left: 2px solid #d4af37; padding-left: 20px; }
-        h2 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px; color: #fff; }
-        p { color: #bbb; font-size: 0.9rem; line-height: 1.6; margin: 0; }
-
-        /* Stats Grid */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; max-width: 600px; margin-bottom: 30px; }
-        .card { border: 1px solid #333; padding: 15px; background: rgba(212, 175, 55, 0.02); text-align: center; }
-        .card-title { font-size: 0.6rem; color: #888; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
-        .card-value { font-size: 0.85rem; color: #fff; font-weight: bold; letter-spacing: 1px; }
-
-        /* Menu Utama (Marketplace Focus) */
-        .menu-container { width: 100%; max-width: 600px; display: grid; gap: 15px; margin-top: 10px; }
-        .menu-btn { display: block; padding: 18px; text-align: center; text-decoration: none; letter-spacing: 3px; font-size: 0.8rem; transition: 0.4s; text-transform: uppercase; font-weight: bold; }
-        
-        .btn-market { background: #d4af37; color: #000; border: 1px solid #d4af37; }
-        .btn-market:hover { background: #fff; border-color: #fff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
-        
-        .btn-profile { border: 1px solid #d4af37; color: #d4af37; background: transparent; }
-        .btn-profile:hover { background: #d4af37; color: #000; }
-
-        .footer { margin-top: auto; padding: 40px; font-size: 0.5rem; color: #333; letter-spacing: 2px; text-align: center; }
+        .main-card { background: #111; border: 1px solid #333; padding: 40px 20px; max-width: 600px; margin: 0 auto; border-radius: 8px; }
+        .btn-go { display: inline-block; background: var(--gold); color: #000; text-decoration: none; padding: 15px 40px; font-weight: bold; margin-top: 20px; border-radius: 4px; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
-    <div class="nav">
-        <a href="index.html">← LOGOUT</a>
-        <span style="opacity: 0.5;">AETHERIS HOLDINGS SYSTEM</span>
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="brand">AETHERIS</div>
     </div>
 
-    <div class="section">
-        <h2>Executive Dashboard</h2>
-        <p>Welcome back, <strong>Chandra Christanto</strong>.<br>Aetheris Global Marketplace is now active.</p>
-    </div>
-
-    <div class="grid">
-        <div class="card">
-            <div class="card-title">Market Status</div>
-            <div class="card-value" style="color: #00ff00;">● LIVE / TRADING</div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleMenu()">✕</div>
+        <div style="padding: 20px; text-align: center; border-bottom: 1px solid #222;">
+            <div style="width: 60px; height: 60px; background: var(--gold); border-radius: 50%; margin: 0 auto 10px;"></div>
+            <div style="font-size: 0.8rem; font-weight: bold;">CHANDRA CHRISTANTO</div>
         </div>
-        <div class="card">
-            <div class="card-title">Last Audit</div>
-            <div class="card-value">APRIL 2026</div>
+        <a href="dashboard.html" class="sidebar-item">🏠 Dashboard</a>
+        <a href="shop.html" class="sidebar-item">🛍️ Belanja Sekarang</a>
+        <a href="profil.html" class="sidebar-item">👤 Akun Saya</a>
+        <a href="index.html" class="sidebar-item" style="color: #ff4d4d; margin-top: 50px;">🚪 Logout</a>
+    </div>
+
+    <div class="content">
+        <div class="user-welcome">
+            <h2>Executive Hub</h2>
+            <p style="color: #888; font-size: 0.8rem;">Welcome back, Managing Director.</p>
+        </div>
+
+        <div class="main-card">
+            <p style="font-size: 0.9rem; color: #ccc; line-height: 1.8;">Selamat datang di portal manajemen Aetheris Global. Akses seluruh layanan eksklusif melalui menu navigasi di sisi kiri layar Anda.</p>
+            <a href="shop.html" class="btn-go">Mulai Belanja</a>
         </div>
     </div>
 
-    <div class="menu-container">
-        <a href="shop.html" class="menu-btn btn-market">Enter Luxury Marketplace →</a>
-        
-        <a href="profile.html" class="menu-btn btn-profile">View Executive Profile</a>
-    </div>
-
-    <div class="section" style="margin-top: 40px;">
-        <h2>Corporate Information</h2>
-        <p style="font-size: 0.8rem;">Seluruh transaksi di Aetheris Marketplace diarahkan melalui protokol pihak ketiga yang aman (Shopee/Tokopedia) untuk menjamin keamanan aset dan pengiriman.</p>
-    </div>
-
-    <div class="footer">
-        AUTHORIZED ACCESS ONLY // MANAGING DIRECTOR: CHANDRA CHRISTANTO
-    </div>
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
