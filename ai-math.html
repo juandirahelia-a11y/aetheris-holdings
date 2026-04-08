@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aether-Math Core</title>
+    <style>
+        body { background: #050505; color: #d4af37; font-family: 'Courier New', monospace; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        .header { padding: 20px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
+        #chat { flex-grow: 1; overflow-y: auto; padding: 20px; font-size: 0.9rem; line-height: 1.5; }
+        .input-box { padding: 20px; border-top: 1px solid #333; display: flex; gap: 10px; }
+        input { flex-grow: 1; background: #111; border: 1px solid #d4af37; color: #fff; padding: 12px; }
+        button { background: #d4af37; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+        .ai-msg { color: #00ff00; margin-bottom: 15px; }
+        .user-msg { color: #fff; margin-bottom: 15px; text-align: right; }
+    </style>
+</head>
+<body>
+    <div class="header"><span>● AETHER-MATH V.1</span> <a href="systems.html" style="color:#d4af37; text-decoration:none;">[EXIT]</a></div>
+    <div id="chat"><div class="ai-msg">> System: Aether-Math Online. Masukkan perhitungan kompleks Anda.</div></div>
+    <div class="input-box">
+        <input type="text" id="in" placeholder="Ketik perhitungan (contoh: 4x5)">
+        <button onclick="send()">CALCULATE</button>
+    </div>
+    <script>
+        function send() {
+            let val = document.getElementById('in').value;
+            let chat = document.getElementById('chat');
+            chat.innerHTML += `<div class="user-msg">${val} _</div>`;
+            setTimeout(() => {
+                let ans = eval(val.replace('x', '*').replace(':', '/')) || "Syntax Error";
+                chat.innerHTML += `<div class="ai-msg">> Result: ${ans}.0000 [Validated by Quantum Core]</div>`;
+                chat.scrollTop = chat.scrollHeight;
+            }, 600);
+            document.getElementById('in').value = "";
+        }
+    </script>
+</body>
+</html>
