@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Profile | Chandra Christanto</title>
+    <style>
+        body { background: #0a0a0a; color: #d4af37; font-family: 'Times New Roman', serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        
+        /* Navigasi */
+        .nav { width: 100%; max-width: 600px; display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 2px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 30px; margin-top: 20px; }
+        .nav a { color: #d4af37; text-decoration: none; border: 1px solid #d4af37; padding: 5px 10px; }
+        
+        /* Kartu Profil */
+        .profile-card { width: 100%; max-width: 600px; text-align: center; border: 1px solid #d4af37; padding: 50px 20px; background: linear-gradient(145deg, #0f0f0f, #050505); box-shadow: 0 10px 40px rgba(0,0,0,0.6); animation: fadeIn 1.5s ease; }
+        
+        /* Frame Foto Direktur */
+        .director-photo { width: 160px; height: 160px; border: 3px solid #d4af37; border-radius: 50%; object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 25px rgba(212, 175, 55, 0.3); }
+        
+        h2 { letter-spacing: 5px; text-transform: uppercase; margin-bottom: 5px; font-size: 1.4rem; color: #fff; }
+        .title { color: #d4af37; font-size: 0.8rem; letter-spacing: 4px; margin-bottom: 35px; opacity: 0.9; text-transform: uppercase; }
+        
+        /* Visi Misi Section */
+        .vision-mission { text-align: left; border-top: 1px solid #333; padding-top: 25px; margin-top: 25px; }
+        h3 { font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; border-left: 3px solid #d4af37; padding-left: 12px; margin-bottom: 15px; color: #fff; }
+        p { color: #bbb; font-size: 0.85rem; line-height: 1.8; margin-bottom: 25px; text-align: justify; }
+        
+        .footer { margin-top: auto; padding: 40px; font-size: 0.5rem; color: #444; letter-spacing: 2px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <a href="dashboard.html">← BACK</a>
+        <span style="opacity: 0.5;">AETHERIS EXECUTIVE OFFICE</span>
+    </div>
+
+    <div class="profile-card">
+        <img src="direktur.jpg" alt="Chandra Christanto" class="director-photo">
+        
+        <h2>Chandra Christanto</h2>
+        <div class="title">Managing Director & Founder</div>
+
+        <div class="vision-mission">
+            <h3>Vision</h3>
+            <p>Membangun Aetheris Global Holdings sebagai pilar utama dalam infrastruktur aset digital dan strategi modal ventura berbasis AI di kancah internasional.</p>
+            
+            <h3>Mission</h3>
+            <p>1. Mengoptimalkan manajemen portofolio risiko tinggi melalui kerangka kerja AI eksklusif.<br>
+               2. Menjadi jembatan antara modal elit global dengan jaringan keuangan terdesentralisasi (DeFi) potensial.<br>
+               3. Merevolusi tata kelola kepemilikan digital strategis secara global demi pertumbuhan yang berkelanjutan.</p>
+        </div>
+    </div>
+
+    <div class="footer">CONFIDENTIAL PROFILE // CHANDRA CHRISTANTO // AETHERIS HOLDINGS LTD.</div>
+
+</body>
+</html>
+
