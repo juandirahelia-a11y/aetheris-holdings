@@ -1,69 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetheris Hub | Executive Portal</title>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aetheris | Executive Hub</title>
     <style>
-        :root { --gold: #d4af37; --dark: #0a0a0a; }
-        body { background: var(--dark); color: #fff; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
-
-        /* Navbar Atas */
-        .navbar { background: #000; padding: 15px 20px; display: flex; align-items: center; border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100; }
-        .menu-icon { font-size: 24px; color: var(--gold); cursor: pointer; margin-right: 20px; }
-        .brand { font-size: 1.2rem; letter-spacing: 3px; font-weight: bold; color: var(--gold); }
-
-        /* Sidebar (Menu Samping) */
-        .sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100%; background: #000; transition: 0.3s; z-index: 1000; border-right: 1px solid var(--gold); padding-top: 60px; box-shadow: 10px 0 30px rgba(0,0,0,0.5); }
-        .sidebar.active { left: 0; }
-        .sidebar-item { padding: 15px 30px; display: block; color: #fff; text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid #111; transition: 0.2s; letter-spacing: 1px; }
-        .sidebar-item:hover { background: var(--gold); color: #000; }
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 20px; color: var(--gold); cursor: pointer; }
-
-        /* Overlay */
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; z-index: 999; }
-        .overlay.active { display: block; }
-
-        /* Content */
-        .content { padding: 30px 20px; text-align: center; }
-        .user-welcome { border-left: 3px solid var(--gold); padding-left: 15px; text-align: left; max-width: 600px; margin: 0 auto 30px; }
-        .user-welcome h2 { margin: 0; font-size: 1.4rem; }
+        :root { --gold: #d4af37; --bg: #f5f5f5; --shopee-red: #ee4d2d; }
+        body { background: var(--bg); font-family: sans-serif; margin: 0; padding-bottom: 70px; }
         
-        .main-card { background: #111; border: 1px solid #333; padding: 40px 20px; max-width: 600px; margin: 0 auto; border-radius: 8px; }
-        .btn-go { display: inline-block; background: var(--gold); color: #000; text-decoration: none; padding: 15px 40px; font-weight: bold; margin-top: 20px; border-radius: 4px; text-transform: uppercase; letter-spacing: 2px; }
+        /* Navbar Atas */
+        .top-nav { background: #fff; padding: 15px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #ddd; }
+        .menu-btn { font-size: 24px; color: var(--gold); cursor: pointer; margin-right: 15px; }
+        .search-bar { flex-grow: 1; background: #eee; padding: 8px; border-radius: 4px; color: #888; font-size: 0.9rem; }
+
+        /* Bottom Navigation (Mirip Shopee) */
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #ddd; z-index: 1000; }
+        .nav-item { text-align: center; color: #555; text-decoration: none; font-size: 0.7rem; }
+        .nav-item i { display: block; font-size: 1.4rem; margin-bottom: 2px; }
+        .nav-item.active { color: var(--shopee-red); }
+
+        /* Sidebar */
+        .sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100%; background: #fff; transition: 0.3s; z-index: 2000; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+        .sidebar.active { left: 0; }
+        .sidebar-item { padding: 15px 20px; display: block; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 1500; }
+        .overlay.active { display: block; }
     </style>
 </head>
 <body>
 
-    <div class="navbar">
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <div class="brand">AETHERIS</div>
+    <div class="top-nav">
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div class="search-bar">Cari di Aetheris...</div>
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
     <div class="sidebar" id="sidebar">
-        <div class="close-btn" onclick="toggleMenu()">✕</div>
-        <div style="padding: 20px; text-align: center; border-bottom: 1px solid #222;">
-            <div style="width: 60px; height: 60px; background: var(--gold); border-radius: 50%; margin: 0 auto 10px;"></div>
-            <div style="font-size: 0.8rem; font-weight: bold;">CHANDRA CHRISTANTO</div>
+        <div style="padding: 30px 20px; background: var(--gold); color: #fff;">
+            <strong>Chandra Christanto</strong><br><small>Managing Director</small>
         </div>
-        <a href="dashboard.html" class="sidebar-item">🏠 Dashboard</a>
-        <a href="shop.html" class="sidebar-item">🛍️ Belanja Sekarang</a>
-        <a href="profil.html" class="sidebar-item">👤 Akun Saya</a>
-        <a href="index.html" class="sidebar-item" style="color: #ff4d4d; margin-top: 50px;">🚪 Logout</a>
+        <a href="dashboard.html" class="sidebar-item">Dashboard</a>
+        <a href="shop.html" class="sidebar-item">Katalog Produk</a>
+        <a href="#" class="sidebar-item">Pengaturan</a>
     </div>
 
-    <div class="content">
-        <div class="user-welcome">
-            <h2>Executive Hub</h2>
-            <p style="color: #888; font-size: 0.8rem;">Welcome back, Managing Director.</p>
-        </div>
-
-        <div class="main-card">
-            <p style="font-size: 0.9rem; color: #ccc; line-height: 1.8;">Selamat datang di portal manajemen Aetheris Global. Akses seluruh layanan eksklusif melalui menu navigasi di sisi kiri layar Anda.</p>
-            <a href="shop.html" class="btn-go">Mulai Belanja</a>
-        </div>
+    <div style="padding: 20px; text-align: center;">
+        <h3 style="color: #333;">Selamat Datang di Aetheris Hub</h3>
+        <p style="color: #666;">Gunakan menu di bawah untuk navigasi cepat.</p>
     </div>
+
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="nav-item active">🏠<br>Beranda</a>
+        <a href="#" class="nav-item">🏷️<br>Deals</a>
+        <a href="#" class="nav-item">🔔<br>Notifikasi</a>
+        <a href="profil.html" class="nav-item">👤<br>Saya</a>
+    </nav>
 
     <script>
         function toggleMenu() {
@@ -71,6 +61,5 @@
             document.getElementById('overlay').classList.toggle('active');
         }
     </script>
-
 </body>
 </html>
