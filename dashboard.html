@@ -18,21 +18,15 @@
         .sidebar.active { left: 0; }
         .sidebar-header { padding: 30px 20px; background: var(--gold); color: #fff; }
         .sidebar-item { padding: 15px 20px; display: block; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; font-size: 0.9rem; }
-        .sidebar-item:hover { background: #f9f9f9; }
 
         /* Overlay */
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 1500; }
         .overlay.active { display: block; }
 
-        /* Content Area */
-        .main-content { padding: 20px; text-align: center; }
-        .hero-box { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; }
-
         /* Bottom Navigation */
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #ddd; z-index: 1000; }
         .nav-link { text-align: center; color: #555; text-decoration: none; font-size: 0.7rem; flex: 1; }
-        .nav-link.active { color: var(--shopee-red); font-weight: bold; }
-        .nav-icon { font-size: 1.4rem; display: block; margin-bottom: 2px; }
+        .nav-link.active { color: var(--shopee-red); }
     </style>
 </head>
 <body>
@@ -45,35 +39,24 @@
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <strong>Chandra Christanto</strong><br>
-            <small>Managing Director</small>
+            <strong>Chandra Christanto</strong><br><small>Managing Director</small>
         </div>
-        <a href="dashboard.html" class="sidebar-item">🏠 Dashboard</a>
-        <a href="shop.html" class="sidebar-item">🛍️ Katalog Produk</a>
+        <a href="dashboard.html" class="sidebar-item">🏠 Beranda</a>
         <a href="profil.html" class="sidebar-item">👤 Profil Saya</a>
-        <a href="index.html" class="sidebar-item" style="color: red; margin-top: 20px;">🚪 Logout</a>
     </div>
 
-    <div class="main-content">
-        <div class="hero-box">
-            <h3 style="margin-top: 0; color: #333;">Aetheris Executive Portal</h3>
-            <p style="color: #666; font-size: 0.85rem;">Selamat datang, Pak Chandra. Kelola marketplace dan aset Anda di sini.</p>
+    <div style="padding: 20px; text-align: center;">
+        <div style="background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+            <h3>Aetheris Executive Portal</h3>
+            <p style="color: #666; font-size: 0.85rem;">Portal manajemen aset dan marketplace resmi.</p>
         </div>
     </div>
 
     <nav class="bottom-nav">
-        <a href="dashboard.html" class="nav-link active">
-            <span class="nav-icon">🏠</span>Beranda
-        </a>
-        <a href="shop.html" class="nav-link">
-            <span class="nav-icon">🏷️</span>Deals
-        </a>
-        <a href="#" class="nav-link">
-            <span class="nav-icon">🔔</span>Notifikasi
-        </a>
-        <a href="profil.html" class="nav-link">
-            <span class="nav-icon">👤</span>Saya
-        </a>
+        <a href="dashboard.html" class="nav-link active">🏠<br>Beranda</a>
+        <a href="#" class="nav-link">🏷️<br>Deals</a>
+        <a href="#" class="nav-link">🔔<br>Notifikasi</a>
+        <a href="profil.html" class="nav-link">👤<br>Saya</a>
     </nav>
 
     <script>
