@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aetheris AI Systems | Integrated Intelligence</title>
+    <style>
+        body { background: #050505; color: #d4af37; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .nav { width: 100%; max-width: 800px; display: flex; justify-content: space-between; font-size: 0.7rem; letter-spacing: 2px; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 30px; }
+        .nav a { color: #d4af37; text-decoration: none; border: 1px solid #d4af37; padding: 5px 10px; }
+        
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { letter-spacing: 10px; text-transform: uppercase; font-size: 1.5rem; }
+        .status-bar { font-size: 0.6rem; color: #00ff00; letter-spacing: 2px; }
+
+        .ai-grid { display: grid; grid-template-columns: 1fr; gap: 20px; width: 100%; max-width: 800px; }
+        
+        /* Box AI Khusus */
+        .ai-card { border: 1px solid #222; background: rgba(212, 175, 55, 0.02); padding: 25px; position: relative; overflow: hidden; transition: 0.3s; }
+        .ai-card:hover { border-color: #d4af37; background: rgba(212, 175, 55, 0.05); }
+        .ai-card::before { content: "CORE_ACTIVE"; position: absolute; top: 10px; right: 10px; font-size: 0.5rem; opacity: 0.3; }
+        
+        .ai-title { font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; color: #fff; display: flex; align-items: center; }
+        .ai-title span { width: 10px; height: 10px; background: #d4af37; border-radius: 50%; margin-right: 10px; box-shadow: 0 0 10px #d4af37; }
+        
+        .ai-desc { font-size: 0.8rem; color: #888; line-height: 1.6; margin-bottom: 15px; }
+        
+        /* Placeholder Visual AI */
+        .ai-terminal { background: #000; border: 1px solid #333; padding: 10px; font-size: 0.7rem; color: #aaa; border-radius: 4px; }
+        .scanline { width: 100%; height: 2px; background: rgba(212, 175, 55, 0.1); margin-top: 5px; animation: scan 2s infinite linear; }
+        
+        @keyframes scan { from { transform: translateY(0); } to { transform: translateY(20px); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .footer { margin-top: 50px; font-size: 0.5rem; color: #444; letter-spacing: 2px; text-align: center; }
+        
+        @media (min-width: 600px) { .ai-grid { grid-template-columns: 1fr 1fr; } .wide { grid-column: span 2; } }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <a href="dashboard.html">← TERMINAL EXIT</a>
+        <span>SYSTEM VERSION 3.0.1</span>
+    </div>
+
+    <div class="header">
+        <div class="status-bar">[ SYSTEM ONLINE - ENCRYPTED ]</div>
+        <h1>AETHERIS CORE AI</h1>
+    </div>
+
+    <div class="ai-grid">
+        
+        <div class="ai-card">
+            <div class="ai-title"><span></span>AETHER-MATH</div>
+            <div class="ai-desc">AI khusus komputasi tingkat tinggi untuk prediksi algoritma pasar dan kalkulasi resiko aset secara real-time.</div>
+            <div class="ai-terminal">
+                > Initializing quant-engine...<br>
+                > Solving complex variables...<br>
+                <div class="scanline"></div>
+            </div>
+        </div>
+
+        <div class="ai-card">
+            <div class="ai-title"><span></span>AETHER-VISUAL</div>
+            <div class="ai-desc">AI khusus pemetaan data. Mengubah ribuan data mentah menjadi grafik proyeksi pertumbuhan yang akurat.</div>
+            <div class="ai-terminal">
+                > Rendering 3D Market Map...<br>
+                > Pattern recognition: ACTIVE<br>
+                <div class="scanline"></div>
+            </div>
+        </div>
+
+        <div class="ai-card wide">
+            <div class="ai-title"><span></span>AETHER-LEDGER</div>
+            <div class="ai-desc">AI khusus audit dan laporan keuangan otomatis. Memastikan arus kas perusahaan transparan dan teroptimasi 100%.</div>
+            <div class="ai-terminal" style="color: #00ff00;">
+                [ FINANCIAL REPORT GENERATED ]<br>
+                Revenue Projection: +245%<br>
+                Audit Status: Verified by Aether-Core<br>
+                <div class="scanline"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        PROPERTY OF AETHERIS GLOBAL HOLDINGS // UNAUTHORIZED ACCESS IS PROHIBITED
+    </div>
+
+</body>
+</html>
