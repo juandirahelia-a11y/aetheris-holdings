@@ -3,60 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetheris | Executive Hub</title>
+    <title>Aetheris Global Holdings | Executive Portal</title>
     <style>
-        :root { --gold: #d4af37; --bg: #f5f5f5; --shopee-red: #ee4d2d; }
-        body { background: var(--bg); font-family: sans-serif; margin: 0; padding-bottom: 70px; overflow-x: hidden; }
+        :root { 
+            --shopee: #ee4d2d; 
+            --gold: #d4af37; 
+            --apple-dark: #1d1d1f; 
+            --bg: #f5f5f7; 
+        }
+        body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; padding-bottom: 70px; overflow-x: hidden; }
         
         /* Navbar Atas */
-        .top-nav { background: #fff; padding: 15px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #ddd; }
+        .top-nav { background: #fff; padding: 12px 15px; display: flex; align-items: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000; }
         .menu-btn { font-size: 24px; color: var(--gold); cursor: pointer; margin-right: 15px; }
-        .search-bar { flex-grow: 1; background: #eee; padding: 8px; border-radius: 4px; color: #888; font-size: 0.9rem; text-align: center; }
+        .search-bar { flex: 1; background: #e8e8ed; padding: 10px; border-radius: 8px; color: #86868b; font-size: 0.85rem; text-align: center; }
 
-        /* Sidebar */
-        .sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100%; background: #fff; transition: 0.3s; z-index: 2000; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+        /* Sidebar (Subsidiaries) */
+        .sidebar { position: fixed; left: -280px; top: 0; width: 260px; height: 100%; background: #fff; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; box-shadow: 5px 0 15px rgba(0,0,0,0.1); }
         .sidebar.active { left: 0; }
-        .sidebar-header { padding: 30px 20px; background: var(--gold); color: #fff; }
-        .sidebar-item { padding: 15px 20px; display: block; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; font-size: 0.9rem; }
+        .sidebar-header { background: var(--apple-dark); color: white; padding: 30px 20px; font-weight: bold; letter-spacing: 1px; }
+        .sidebar-item { padding: 15px 20px; display: flex; align-items: center; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; font-size: 0.95rem; }
+        .sidebar-item:hover { background: #f9f9f9; color: var(--shopee); }
 
-        /* Overlay */
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 1500; }
+        /* Main Content */
+        .hero-section { padding: 30px 20px; text-align: center; background: #fff; margin-bottom: 10px; }
+        .hero-section h2 { margin: 0; color: var(--apple-dark); font-size: 1.5rem; }
+        .hero-section p { color: #86868b; font-size: 0.9rem; margin-top: 5px; }
+
+        /* Widget Anak Perusahaan */
+        .subsidiary-card { background: var(--apple-dark); color: #fff; margin: 15px; padding: 20px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
+        .subsidiary-card.shopee-style { background: linear-gradient(45deg, #f53d2d, #ff6333); }
+
+        /* Bottom Navigation (Shopee Style) */
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #ddd; z-index: 1000; }
+        .nav-link { text-align: center; color: #86868b; text-decoration: none; font-size: 0.7rem; flex: 1; }
+        .nav-link.active { color: var(--shopee); font-weight: bold; }
+        .nav-icon { font-size: 1.4rem; display: block; margin-bottom: 2px; }
+
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: none; z-index: 1500; }
         .overlay.active { display: block; }
-
-        /* Bottom Navigation */
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #ddd; z-index: 1000; }
-        .nav-link { text-align: center; color: #555; text-decoration: none; font-size: 0.7rem; flex: 1; }
-        .nav-link.active { color: var(--shopee-red); }
     </style>
 </head>
 <body>
 
     <div class="top-nav">
         <div class="menu-btn" onclick="toggleMenu()">☰</div>
-        <div class="search-bar">Search Aetheris Collection</div>
+        <div class="search-bar">Search Aetheris Global Ecosystem</div>
     </div>
 
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <strong>Chandra Christanto</strong><br><small>Managing Director</small>
+            AETHERIS HOLDINGS<br>
+            <small style="font-weight: normal; opacity: 0.7;">Subsidiary Management</small>
         </div>
-        <a href="dashboard.html" class="sidebar-item">🏠 Beranda</a>
-        <a href="profil.html" class="sidebar-item">👤 Profil Saya</a>
+        <a href="shop.html" class="sidebar-item">🛒 Aetheris Marketplace</a>
+        <a href="apple.html" class="sidebar-item">📱 Aetheris Tech (Apple Div.)</a>
+        <a href="systems.html" class="sidebar-item">🧠 Aetheris AI & Math</a>
+        <a href="#" class="sidebar-item" style="color: #ee4d2d; margin-top: 20px; font-weight: bold;">🚪 Keluar</a>
     </div>
 
-    <div style="padding: 20px; text-align: center;">
-        <div style="background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <h3>Aetheris Executive Portal</h3>
-            <p style="color: #666; font-size: 0.85rem;">Portal manajemen aset dan marketplace resmi.</p>
-        </div>
+    <div class="hero-section">
+        <h2>Chandra Christanto</h2>
+        <p>Managing Director | Aetheris Global</p>
     </div>
+
+    <a href="apple.html" class="subsidiary-card">
+        <div>
+            <strong style="font-size: 1.1rem;">Aetheris Tech</strong><br>
+            <small>Premium Devices & iPhone 17 Pro</small>
+        </div>
+        <span style="font-size: 1.5rem;">📱</span>
+    </a>
+
+    <a href="shop.html" class="subsidiary-card shopee-style">
+        <div>
+            <strong style="font-size: 1.1rem;">Aetheris Market</strong><br>
+            <small>Global E-commerce & Logistics</small>
+        </div>
+        <span style="font-size: 1.5rem;">🛍️</span>
+    </a>
 
     <nav class="bottom-nav">
-        <a href="dashboard.html" class="nav-link active">🏠<br>Beranda</a>
-        <a href="#" class="nav-link">🏷️<br>Deals</a>
-        <a href="#" class="nav-link">🔔<br>Notifikasi</a>
-        <a href="profil.html" class="nav-link">👤<br>Saya</a>
+        <a href="dashboard.html" class="nav-link active">
+            <span class="nav-icon">🏠</span>Beranda
+        </a>
+        <a href="shop.html" class="nav-link">
+            <span class="nav-icon">🏷️</span>Deals
+        </a>
+        <a href="#" class="nav-link">
+            <span class="nav-icon">🔔</span>Notifikasi
+        </a>
+        <a href="profie.html" class="nav-link">
+            <span class="nav-icon">👤</span>Saya
+        </a>
     </nav>
 
     <script>
@@ -65,6 +105,6 @@
             document.getElementById('overlay').classList.toggle('active');
         }
     </script>
-
 </body>
 </html>
+
