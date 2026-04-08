@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetheris Global Holdings | Executive Portal</title>
+    <title>Aetheris Global Holdings | Executive Hub</title>
     <style>
         :root { 
             --shopee: #ee4d2d; 
@@ -11,7 +11,7 @@
             --apple-dark: #1d1d1f; 
             --bg: #f5f5f7; 
         }
-        body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 0; padding-bottom: 70px; overflow-x: hidden; }
+        body { background: var(--bg); font-family: -apple-system, sans-serif; margin: 0; padding-bottom: 80px; overflow-x: hidden; }
         
         /* Navbar Atas */
         .top-nav { background: #fff; padding: 12px 15px; display: flex; align-items: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000; }
@@ -19,26 +19,21 @@
         .search-bar { flex: 1; background: #e8e8ed; padding: 10px; border-radius: 8px; color: #86868b; font-size: 0.85rem; text-align: center; }
 
         /* Sidebar (Subsidiaries) */
-        .sidebar { position: fixed; left: -280px; top: 0; width: 260px; height: 100%; background: #fff; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; box-shadow: 5px 0 15px rgba(0,0,0,0.1); }
+        .sidebar { position: fixed; left: -280px; top: 0; width: 260px; height: 100%; background: #fff; transition: 0.4s; z-index: 2000; box-shadow: 5px 0 15px rgba(0,0,0,0.1); }
         .sidebar.active { left: 0; }
-        .sidebar-header { background: var(--apple-dark); color: white; padding: 30px 20px; font-weight: bold; letter-spacing: 1px; }
-        .sidebar-item { padding: 15px 20px; display: flex; align-items: center; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; font-size: 0.95rem; }
-        .sidebar-item:hover { background: #f9f9f9; color: var(--shopee); }
+        .sidebar-header { background: var(--apple-dark); color: white; padding: 30px 20px; font-weight: bold; }
+        .sidebar-item { padding: 15px 20px; display: block; color: #333; text-decoration: none; border-bottom: 1px solid #f5f5f5; font-size: 0.95rem; }
 
-        /* Main Content */
-        .hero-section { padding: 30px 20px; text-align: center; background: #fff; margin-bottom: 10px; }
-        .hero-section h2 { margin: 0; color: var(--apple-dark); font-size: 1.5rem; }
-        .hero-section p { color: #86868b; font-size: 0.9rem; margin-top: 5px; }
-
-        /* Widget Anak Perusahaan */
-        .subsidiary-card { background: var(--apple-dark); color: #fff; margin: 15px; padding: 20px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; }
-        .subsidiary-card.shopee-style { background: linear-gradient(45deg, #f53d2d, #ff6333); }
+        /* Hero & Cards */
+        .hero { padding: 30px 20px; text-align: center; background: #fff; margin-bottom: 10px; }
+        .subsidiary-card { background: var(--apple-dark); color: #fff; margin: 15px; padding: 25px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; transition: 0.3s; }
+        .shopee-card { background: linear-gradient(45deg, #f53d2d, #ff6333); }
 
         /* Bottom Navigation (Shopee Style) */
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #ddd; z-index: 1000; }
         .nav-link { text-align: center; color: #86868b; text-decoration: none; font-size: 0.7rem; flex: 1; }
         .nav-link.active { color: var(--shopee); font-weight: bold; }
-        .nav-icon { font-size: 1.4rem; display: block; margin-bottom: 2px; }
+        .nav-icon { font-size: 1.5rem; display: block; margin-bottom: 2px; }
 
         .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: none; z-index: 1500; }
         .overlay.active { display: block; }
@@ -53,50 +48,38 @@
 
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
     <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            AETHERIS HOLDINGS<br>
-            <small style="font-weight: normal; opacity: 0.7;">Subsidiary Management</small>
-        </div>
+        <div class="sidebar-header">AETHERIS HOLDINGS</div>
         <a href="shop.html" class="sidebar-item">🛒 Aetheris Marketplace</a>
-        <a href="apple.html" class="sidebar-item">📱 Aetheris Tech (Apple Div.)</a>
+        <a href="apple.html" class="sidebar-item">📱 Aetheris Tech (Apple)</a>
         <a href="systems.html" class="sidebar-item">🧠 Aetheris AI & Math</a>
-        <a href="#" class="sidebar-item" style="color: #ee4d2d; margin-top: 20px; font-weight: bold;">🚪 Keluar</a>
     </div>
 
-    <div class="hero-section">
-        <h2>Chandra Christanto</h2>
-        <p>Managing Director | Aetheris Global</p>
+    <div class="hero">
+        <h2 style="margin:0;">Chandra Christanto</h2>
+        <p style="color:#86868b; margin-top:5px;">Managing Director | Aetheris Global</p>
     </div>
 
     <a href="apple.html" class="subsidiary-card">
         <div>
-            <strong style="font-size: 1.1rem;">Aetheris Tech</strong><br>
-            <small>Premium Devices & iPhone 17 Pro</small>
+            <strong style="font-size: 1.2rem;">Aetheris Tech</strong><br>
+            <small style="opacity:0.8;">Premium Devices Division</small>
         </div>
-        <span style="font-size: 1.5rem;">📱</span>
+        <span style="font-size: 2rem;">📱</span>
     </a>
 
-    <a href="shop.html" class="subsidiary-card shopee-style">
+    <a href="shop.html" class="subsidiary-card shopee-card">
         <div>
-            <strong style="font-size: 1.1rem;">Aetheris Market</strong><br>
-            <small>Global E-commerce & Logistics</small>
+            <strong style="font-size: 1.2rem;">Aetheris Market</strong><br>
+            <small style="opacity:0.8;">E-commerce & Logistics</small>
         </div>
-        <span style="font-size: 1.5rem;">🛍️</span>
+        <span style="font-size: 2rem;">🛍️</span>
     </a>
 
     <nav class="bottom-nav">
-        <a href="dashboard.html" class="nav-link active">
-            <span class="nav-icon">🏠</span>Beranda
-        </a>
-        <a href="shop.html" class="nav-link">
-            <span class="nav-icon">🏷️</span>Deals
-        </a>
-        <a href="#" class="nav-link">
-            <span class="nav-icon">🔔</span>Notifikasi
-        </a>
-        <a href="profie.html" class="nav-link">
-            <span class="nav-icon">👤</span>Saya
-        </a>
+        <a href="dashboard.html" class="nav-link active"><span class="nav-icon">🏠</span>Beranda</a>
+        <a href="shop.html" class="nav-link"><span class="nav-icon">🏷️</span>Deals</a>
+        <a href="#" class="nav-link"><span class="nav-icon">🔔</span>Notifikasi</a>
+        <a href="profile.html" class="nav-link"><span class="nav-icon">👤</span>Saya</a>
     </nav>
 
     <script>
